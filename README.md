@@ -5,6 +5,50 @@ Wormhole Name Service (WNS) is the first ever multichain naming system designed 
 ## Technical Description
 The WNS smart contracts are designed to manage name registration, resolution, and ownership of blockchain addresses. Built with cross-chain compatibility in mind, these contracts leverage the Wormhole interoperability protocol to synchronize data across multiple blockchains.
 
+
+### Key Features:
+- **Cross-chain compatibility:** WNS enables seamless name resolution across multiple blockchains using Wormhole.
+- **Decentralized management:** Users can register and manage names without relying on a centralized entity.
+- **Security and Privacy:** The contracts implement security features such as multi-signature, time-locked operations, and optional encryption.
+- **Flexible resource mapping:** Names can be associated with blockchain addresses, IPFS hashes, program IDs, and other records.
+
+
+## Contract Structure
+
+### 1. Core Contracts
+- **ChainRegistry.sol**: Handles domain registration and management across different EVM-compatible blockchains.
+- **CrossChainSync.sol**: Ensures synchronization of name records across chains using Wormhole.
+- **RootRegistry.sol**: Manages top-level domains (TLDs) and global WNS configurations.
+
+### 2. Economic Contracts
+- **FeeDistribution.sol**: Distributes fees collected from name registrations and renewals to incentivize validators and infrastructure providers.
+- **PricingOracle.sol**: Manages dynamic pricing of domain names based on factors such as demand and name length.
+- **Treasury.sol**: Stores and manages funds for the WNS ecosystem.
+
+### 3. Governance Contracts
+- **Governance.sol**: Implements DAO-based governance, allowing WNS stakeholders to vote on protocol upgrades and changes.
+
+### 4. Interoperability Contracts
+- **Abstraction.sol**: Provides an abstraction layer for cross-chain interactions, simplifying integration with multiple blockchains.
+- **WormholeIntegration.sol**: Interfaces with the Wormhole protocol for cross-chain messaging and synchronization.
+- **ens.sol**: Compatibility module for interacting with Ethereum Name Service (ENS) and ensuring bidirectional resolution.
+
+### 5. Resolver Contracts
+- **MultichainResolvers.sol**: Resolves names to blockchain addresses and resources on supported networks.
+- **ReverseResolver.sol**: Handles reverse lookups (address to name), ensuring consistency across chains.
+- **WildcardResolver.sol**: Supports wildcard domain resolution and pattern matching.
+
+### 6. Security Contracts
+- **AccessControl.sol**: Manages role-based access control and permissions for critical WNS operations.
+- **SecurityModule.sol**: Implements security features such as time-locked operations and multi-signature authorization for sensitive actions.
+
+### 7. Storage Contracts
+- **CachingLayer.sol**: Implements a distributed caching layer to reduce on-chain queries and enhance performance.
+- **OffchainStorage.sol**: Uses decentralized storage solutions (like IPFS) for storing large datasets off-chain.
+- **OnchainStorage.sol**: Manages on-chain storage for critical WNS data, optimized for speed and scalability.
+
+
+
 ## Architecture
 
 WNS is designed as a modular, cross-chain solution that can interact with multiple blockchains through the Wormhole protocol. Here’s a high-level view of the architecture:
